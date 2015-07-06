@@ -1,0 +1,5 @@
+selenium:
+  build: ./selenium/
+  ports:
+    - "4444:4444"
+    - "5900:5900"
