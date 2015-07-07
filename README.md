@@ -1,6 +1,6 @@
 # Selenium Docker container
 
-This project creates a Docker image prepared with Selenium and a VNC server running on a Centos7 box with Xvfb and twm as WM.
+This project creates a Docker image prepared with Selenium and a VNC server running on a Centos7 box with Xvfb and openbox as WM.
 
 To get it started:  
 1. docker build -t selenium /path/to/folder/containing/Dockerfile  

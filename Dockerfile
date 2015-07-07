@@ -15,7 +15,6 @@ RUN sed -i '/^mirrorlist=.*/s/^/#/g' /etc/yum.repos.d/CentOS-Base.repo \
 
 # Add epel repo
 RUN rpm -iUvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
-RUN echo 1
 COPY chrome/google-chrome.repo /etc/yum.repos.d/
 
 RUN yum -y update \
@@ -41,9 +40,7 @@ RUN echo 202cb962ac59075b964b07152d234b70 > /etc/machine-id
 
 # vnc
 RUN yum -y install http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
-RUN echo 4
-RUN yum install -y x11vnc ffmpeg
-RUN rpm -i http://rpmfind.net/linux/centos/6.6/os/x86_64/Packages/xorg-x11-twm-1.0.3-5.1.el6.x86_64.rpm
+RUN yum install -y x11vnc ffmpeg openbox
 RUN x11vnc -storepasswd vnc /tmp/vncpass
 
 # Enable sudo with no passwd
@@ -53,7 +50,6 @@ RUN groupadd sudo \
     && gpasswd -a docker sudo
 
 # Copy configs
-RUN echo "RandomPlacement" >> ~/.twmrc
 COPY supervisor/*.ini /etc/supervisord.d/
 
 COPY scripts/run.sh /run.sh
