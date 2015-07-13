@@ -40,7 +40,7 @@ RUN echo 202cb962ac59075b964b07152d234b70 > /etc/machine-id
 
 # vnc
 RUN yum -y install http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
-RUN yum install -y x11vnc ffmpeg openbox
+RUN yum install -y x11vnc ffmpeg openbox libexif
 RUN x11vnc -storepasswd vnc /tmp/vncpass
 
 # Enable sudo with no passwd
